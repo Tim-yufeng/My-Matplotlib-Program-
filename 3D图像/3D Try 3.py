@@ -1,0 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax1 = fig.add_subplot(111, projection='3d')
+x = np.arange(-5, 5, 0.25)
+y = np.arange(-5, 5, 0.25)
+x, y = np.meshgrid(x, y)
+r = np.sqrt(x**2 + y**2)
+z = np.sin(r)
+ax1.contour(x, y, z, zdir='x', offset=-5, cmap='hot')
+ax1.contour(x, y, z, zdir='y', offset=5, cmap='hot')
+ax1.plot_surface(x,y,z,cmap='hot',alpha=0.4)
+plt.show()
+# ax2 = fig.add_subplot(132, projection='3d')
+# ax3 = fig.add_subplot(133, projection='3d')
+# ax2.contourf(x, y, z, zdir='x', offset=-5, cmap='hot')
+# ax2.contourf(x, y, z, zdir='y', offset=5, cmap='hot')
+# ax3.plot_surface(x,y,z,cmap='hot')
